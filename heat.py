@@ -57,13 +57,13 @@ while dif > thr:
     T_xm = np.roll(T, (1,0), axis=(0,1))
     T_xp = np.roll(T, (-1,0), axis=(0,1))
     # apply boundary conditions
-    T_yp[:,-1]    = T[:,-1] # insulated wall: same temperature as fluid
-    T_ym[:,0]   = T[:,0] 
+    T_yp[:,-1] = T[:,-1] # insulated wall: same temperature as fluid
+    T_ym[:,0]  = T[:,0] 
     T_xp[-1,:] = T0 # fluid flow: far away has starting temperature
-    T_xm[0,:]   = T0
+    T_xm[0,:]  = T0
     # boundary conditions for temperature plates
-    T_yp[i_s:i_e,-1]  = Th
-    T_ym[i_s:i_e,0] = Tc
+    T_yp[i_s:i_e,-1] = Th
+    T_ym[i_s:i_e,0]  = Tc
     # determine new temperature
     T_new = (vx*rho*cp*T_xm*dy + la*((T_xp + T_xm)*dy/dx + (T_yp + T_ym)*dx/dy)) / (vx*rho*cp*dy + 2*la*(dx*dx+dy*dy)/(dx*dy))
     # determine difference
