@@ -79,7 +79,7 @@ for i in range(ny):
         print("18 degrees at " + str((i-1) * dy) + " cm")
         first = False
     if not first and T[i_sens,i] > 22:
-        print("22 degrees at " + str((i-1) * dy) + " cm")
+        print("22 degrees at " + str((i) * dy) + " cm")
         break
     
 # plot result
